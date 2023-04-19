@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///C:/Users/NT/OneDrive%20-%20Rutgers%20University/Desktop/projcode.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Quiz</title>
+  </head>
+  <body background="C:\Users\NT\OneDrive - Rutgers University\Pictures\Saved Pictures\bg.jpg">
+    <center>
+    <b>
+    <font face="Papyrus" color="white" size="7">
+    <h1>Trivia</h1>
+    <p id="question">What does HTML stand for?</p>
+    <input type="text" id="answer">
+    <button  id="submit">Submit</button>
+    <p id="result"></p>
+    
+<img align="right" height="300" width="350" src="C:\Users\NT\OneDrive - Rutgers University\Pictures\Saved Pictures\csdc image.jpg">
+<img align="left"height="300" width="350" src="C:\Users\NT\OneDrive - Rutgers University\Pictures\Saved Pictures\team slay.jpg">
+
+    <script>
+      const quiz = [
+       
+        { 
+          question: "Which company Invented the first Microprocessor?",
+          answer: "Intel"
+        },
+        { 
+          question: "Closing of a tag in HTML uses?:  a)other  b)!  c)/  d).",
+          answer: "c"
+        },
+        {
+          question: "What is used for single-line comments in Python?: a)// b)# c)!/*",
+          answer: "b"
+        },
+        {
+          question: "What is used to create an empty set in Python?: a)() b)set() c){}",
+          answer: "b"
+        },
+        {
+          question: "The largest HTML heading is: a)h7 b)h9 c)h5 d)h1",
+          answer: "d"
+        },
+        {
+          question: "Who invented the first computer?",
+          answer: "Charles Babbage"
+        },
+        {
+          question: "Now appearing prophetic, what device was announced in 2007 with the following slogan? 'This is only the beginning.'",
+          answer: "iPhone"
+        },
+        {
+          question: "Which computer company based in Tawain is known for its PCs, including the ZenBook, VivoBook, and Republic of Gamers laptop?",
+          answer: "Asus"
+        },
+        {
+          question: "Popular as a standalone smartphone app, Candy Crush Saga initially debuted on what website's games platform?",
+          answer: "Facebook"
+        },
+        {
+          question: "Unicode, the standard for character encoding used to represent multilingual text as binary, is the successor of what US encoding standard?",
+          answer: "ASCII"
+        },
+        {
+          question: "As its name implies, a computer's arithmetic ______ unit (ALU) is part of the CPU and performs various math functions-sort of like the CPU's calculator ",
+          answer: "Logic"
+        },
+        {
+          question: "Which company brought the popular video teleconferencing software 'Skype'? a)Google b)Accenture c)Oracle d)Microsoft",
+          answer: "d"
+        },
+        {
+          question: "Mark Zukerberg is the owner of: a)Facebook b)Google c)Linux d)LinkedIn",
+          answer: "a"
+        },
+        {
+          question: "The motherboard was first introduced to the world by the company:a)Intel b)IBM c)Oracle d)SAP",
+          answer: "b"
+        },
+
+      ];
+
+      let currentQuestionIndex = 0;
+      let score = 0;
+
+      const questionElement = document.getElementById("question");
+      const answerElement = document.getElementById("answer");
+      const resultElement = document.getElementById("result");
+      const submitButton = document.getElementById("submit");
+
+      function displayQuestion() {
+        const currentQuestion = quiz[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+      }
+
+      function checkAnswer() {
+        const currentQuestion = quiz[currentQuestionIndex];
+        const userAnswer = answerElement.value;
+        if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
+          resultElement.textContent = "Correct!";
+          score++;
+        } else {
+          resultElement.textContent = "Incorrect.";
+        }
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quiz.length) {
+          displayQuestion();
+        } else {
+          questionElement.textContent = "Quiz complete!";
+          answerElement.style.display = "none";
+          submitButton.style.display = "none";
+          resultElement.textContent = `Score: ${score}/${quiz.length}`;
+        }
+        answerElement.value = "";
+      }
+
+      displayQuestion();
+      submitButton.addEventListener("click", checkAnswer);
+     
+    </script>
+    </font>
+    </b>
+  </center>
+    
+  
+
+</body></html>
